@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block msg %}
+    {% if messages %}
+        {% for message in messages %}
+            <p {% if message.tags %} class="alert alert-{{message.tags}} mb-5" {% endif %}>{{message}}</p>
+        {% endfor %}
+    {% endif %}
+{% endblock msg %}
+
+{% block content %}
+
+<div class="col-sm-10">
+    <h3 class="text-white my-5">Welcome To API Section</h3>
+    <div class="container p-3 my-3 border" style='background-color:rgb(232, 253, 246)'>
+        <p class='text-dark'>Instructions, Follow below Steps...</p>
+        <hr class="my-4" style="background-color:rgb(16, 17, 17)">
+        <article  class="text-dark">
+            <h2 class="text-dark">1. You need to Register</h2>
+            <p>If you're new user than click here to <a href="/register">Register</a> and Create a Account.</p>
+            <ul>
+                <li>Note : Remember Your "Username" and "Password"</li>
+            </ul>
+        </article>
+        <hr class="my-4" style="background-color:rgb(16, 17, 17)">
+        <article  class="text-dark">
+            <h2 class="text-dark">2. Install Httpie</h2>
+            <ul>
+                <li>HTTPie is designed for painless debugging and interaction with APIs, HTTP servers, and web services.</li>
+                <li>HTTPie can be installed on any operating system.</li>
+            </ul>
+            <pre class="lang-bash">
+    <span class="c1"># We Use Python for installation</span>
+    <span class="prompt">$</span>pip install httpie
+            </pre>
+        </article>
+        <hr class="my-4" style="background-color:rgb(16, 17, 17)">
+        <article  class="text-dark">
+            <h2 class="text-dark">3. Generate API Token</h2>
+            <p>Follow Steps : </p>
+            <ul>
+                <li>Open 'Command Prompt'</li>
+                <li>Type : http https://apiview1.herokuapp.com/gettoken/ username="user" password="pass"</li>
+            </ul>
+            <p>It will Genrate and gives you 'Access' & 'Refresh' Token.</p>
+            <ul>
+                <li>Note : Access Token life 10 minutes. After 10 minutes it will not valid But You can Re-genrate using Access Token.</li>
+                <span class="prompt">Type : http https://apiview1.herokuapp.com/refreshtoken/ refresh="5ffrv51--------|| Paste Access token here ||-------r51d21c5e"</span>
+                <li>Note : If you want to check Token is valid or not ? </li>
+                <span class="prompt">http POST https://apiview1.herokuapp.com/refreshtoken/ refresh="eyJ0eXAiOiJK-----|| Paste here Access Token ||-------V1QiLCJhbG</span>
+                <li>Note : Refresh Token life 1 day. After 1 day it will not valid But you can re-follow from Steps 3.</li>
+            </ul>
+        </article>
+        <hr class="my-4" style="background-color:rgb(16, 17, 17)">
+        <article  class="text-dark">
+            <h2 class="text-dark">4. Download and install Postman Software</h2>
+            <p>If you're already install then ignore, Otherwise click here to <a href="https://www.postman.com/downloads/">Download</a> and Install.</p>
+            <ul>
+                <li>It's easy to run and test your API.</li>
+            </ul>
+            <p>Note : For API Security we have some limitaions.</p>
+            <ul>
+                <li>Throttle Rates :- For Unknown User can call API only 4/hour.</br>- For Known User can call API only 10/hour.</li>
+            </ul>
+        </article>
+        <hr class="my-4" style="background-color:rgb(16, 17, 17)">
+        <article  class="text-dark">
+            <h2 class="text-dark">5. Open 'Postman'</h2>
+            <p>url paste into Application : 'https://apiview1.herokuapp.com/student/' and perform Crud.</p>
+        </article>
+    </div>
+
+</div>
+
+{% endblock content %}
