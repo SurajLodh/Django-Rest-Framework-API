@@ -16,11 +16,12 @@ router = DefaultRouter()
 router.register('student', views.StudentViewSet, basename="student")
 
 urlpatterns = [
-    path('', include(router.urls)),
+    path('register/', views.RegisterView.as_view(), name="register"),
     path('auth/', include('rest_framework.urls', namespace="Authentication")),
     path('gettoken/', TokenObtainPairView.as_view(), name="token_obtain_pair"),
     path('refreshtoken/', TokenRefreshView.as_view(), name="token_refresh"),
     path('verifytoken/', TokenObtainPairView.as_view(), name="token_verify"),
+    path('', include(router.urls)),
 
 
 ]
